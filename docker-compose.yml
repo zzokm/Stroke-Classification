@@ -35,6 +35,7 @@ services:
       dockerfile: web/Dockerfile
       args:
         NEXT_PUBLIC_API_URL: /api
+        INTERNAL_API_URL: http://api:8003
     container_name: stroke-web
     restart: unless-stopped
     ports:

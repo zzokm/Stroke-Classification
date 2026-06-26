@@ -8,7 +8,7 @@ docker compose up -d --build
 ```
 
 - **Web:** `http://stroke.zokm.me:6454` (host `6454` → container `3003`)
-- **API:** proxied at `/api` → internal `http://api:8003` (e.g. `/api/health`, `/api/predict`)
+- **API:** proxied at `/api` → internal `http://api:8003` (e.g. `/api/health`, `/api/predict`) via a runtime Next.js route handler
 
 Point your reverse proxy (if any) at host port **6454**.
 
