@@ -3,14 +3,16 @@
 import { DISCLAIMER } from "@/lib/copy";
 import { FieldLabel } from "@/components/ui/field-label";
 import { Input } from "@/components/ui/input";
+import { LabeledSelect } from "@/components/ui/labeled-select";
 import { Switch } from "@/components/ui/switch";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  EVER_MARRIED_OPTIONS,
+  GENDER_OPTIONS,
+  getOptionLabel,
+  RESIDENCE_TYPE_OPTIONS,
+  SMOKING_STATUS_OPTIONS,
+  WORK_TYPE_OPTIONS,
+} from "@/lib/form-options";
 import type { FieldErrors } from "@/lib/validation";
 import type { PatientFormData } from "@/lib/types";
 
@@ -39,20 +41,13 @@ export function DemographicsStep({ form, errors, onChange }: StepFieldsProps) {
         <FieldLabel htmlFor="gender" helpKey="gender">
           Gender
         </FieldLabel>
-        <Select
+        <LabeledSelect
+          id="gender"
           value={form.gender}
-          onValueChange={(value) =>
-            onChange("gender", value as PatientFormData["gender"])
-          }
-        >
-          <SelectTrigger id="gender">
-            <SelectValue placeholder="Select gender" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="Female">Female</SelectItem>
-            <SelectItem value="Male">Male</SelectItem>
-          </SelectContent>
-        </Select>
+          onValueChange={(value) => onChange("gender", value)}
+          placeholder="Select gender"
+          options={GENDER_OPTIONS}
+        />
         <FieldError message={errors.gender} />
       </div>
 
@@ -77,20 +72,13 @@ export function DemographicsStep({ form, errors, onChange }: StepFieldsProps) {
         <FieldLabel htmlFor="ever_married" helpKey="ever_married">
           Ever married
         </FieldLabel>
-        <Select
+        <LabeledSelect
+          id="ever_married"
           value={form.ever_married}
-          onValueChange={(value) =>
-            onChange("ever_married", value as PatientFormData["ever_married"])
-          }
-        >
-          <SelectTrigger id="ever_married">
-            <SelectValue placeholder="Select option" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="Yes">Yes</SelectItem>
-            <SelectItem value="No">No</SelectItem>
-          </SelectContent>
-        </Select>
+          onValueChange={(value) => onChange("ever_married", value)}
+          placeholder="Select option"
+          options={EVER_MARRIED_OPTIONS}
+        />
         <FieldError message={errors.ever_married} />
       </div>
 
@@ -98,23 +86,13 @@ export function DemographicsStep({ form, errors, onChange }: StepFieldsProps) {
         <FieldLabel htmlFor="work_type" helpKey="work_type">
           Work type
         </FieldLabel>
-        <Select
+        <LabeledSelect
+          id="work_type"
           value={form.work_type}
-          onValueChange={(value) =>
-            onChange("work_type", value as PatientFormData["work_type"])
-          }
-        >
-          <SelectTrigger id="work_type">
-            <SelectValue placeholder="Select work type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="Private">Private</SelectItem>
-            <SelectItem value="Self-employed">Self-employed</SelectItem>
-            <SelectItem value="Govt_job">Government job</SelectItem>
-            <SelectItem value="children">Children</SelectItem>
-            <SelectItem value="Never_worked">Never worked</SelectItem>
-          </SelectContent>
-        </Select>
+          onValueChange={(value) => onChange("work_type", value)}
+          placeholder="Select work type"
+          options={WORK_TYPE_OPTIONS}
+        />
         <FieldError message={errors.work_type} />
       </div>
 
@@ -122,23 +100,13 @@ export function DemographicsStep({ form, errors, onChange }: StepFieldsProps) {
         <FieldLabel htmlFor="Residence_type" helpKey="Residence_type">
           Residence type
         </FieldLabel>
-        <Select
+        <LabeledSelect
+          id="Residence_type"
           value={form.Residence_type}
-          onValueChange={(value) =>
-            onChange(
-              "Residence_type",
-              value as PatientFormData["Residence_type"],
-            )
-          }
-        >
-          <SelectTrigger id="Residence_type">
-            <SelectValue placeholder="Select residence type" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="Urban">Urban</SelectItem>
-            <SelectItem value="Rural">Rural</SelectItem>
-          </SelectContent>
-        </Select>
+          onValueChange={(value) => onChange("Residence_type", value)}
+          placeholder="Select residence type"
+          options={RESIDENCE_TYPE_OPTIONS}
+        />
         <FieldError message={errors.Residence_type} />
       </div>
     </div>
@@ -230,25 +198,13 @@ export function LifestyleStep({ form, errors, onChange }: StepFieldsProps) {
         <FieldLabel htmlFor="smoking_status" helpKey="smoking_status">
           Smoking status
         </FieldLabel>
-        <Select
+        <LabeledSelect
+          id="smoking_status"
           value={form.smoking_status}
-          onValueChange={(value) =>
-            onChange(
-              "smoking_status",
-              value as PatientFormData["smoking_status"],
-            )
-          }
-        >
-          <SelectTrigger id="smoking_status">
-            <SelectValue placeholder="Select smoking status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="never smoked">Never smoked</SelectItem>
-            <SelectItem value="formerly smoked">Formerly smoked</SelectItem>
-            <SelectItem value="smokes">Currently smokes</SelectItem>
-            <SelectItem value="Unknown">Unknown</SelectItem>
-          </SelectContent>
-        </Select>
+          onValueChange={(value) => onChange("smoking_status", value)}
+          placeholder="Select smoking status"
+          options={SMOKING_STATUS_OPTIONS}
+        />
         <FieldError message={errors.smoking_status} />
       </div>
     </div>
@@ -265,8 +221,8 @@ export function ReviewStep({ form, onEdit }: ReviewStepProps) {
     { label: "Gender", value: form.gender, step: 0 },
     { label: "Age", value: `${form.age} years`, step: 0 },
     { label: "Ever married", value: form.ever_married, step: 0 },
-    { label: "Work type", value: form.work_type.replace(/_/g, " "), step: 0 },
-    { label: "Residence", value: form.Residence_type, step: 0 },
+    { label: "Work type", value: getOptionLabel(WORK_TYPE_OPTIONS, form.work_type), step: 0 },
+    { label: "Residence", value: getOptionLabel(RESIDENCE_TYPE_OPTIONS, form.Residence_type), step: 0 },
     {
       label: "Hypertension",
       value: form.hypertension ? "Yes" : "No",
@@ -283,7 +239,7 @@ export function ReviewStep({ form, onEdit }: ReviewStepProps) {
       step: 1,
     },
     { label: "BMI", value: form.bmi.trim() ? form.bmi : "Not provided", step: 2 },
-    { label: "Smoking status", value: form.smoking_status, step: 2 },
+    { label: "Smoking status", value: getOptionLabel(SMOKING_STATUS_OPTIONS, form.smoking_status), step: 2 },
   ];
 
   return (

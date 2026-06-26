@@ -4,19 +4,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { LabeledSelect } from "@/components/ui/labeled-select";
 import { predictStrokeRisk } from "@/lib/api";
 import {
   generateLogicalPatient,
   type PatientArchetype,
 } from "@/lib/logical-patient";
 import type { PatientPreset } from "@/lib/model-report";
+import { PATIENT_ARCHETYPE_OPTIONS } from "@/lib/form-options";
 import { saveScreeningPrefill } from "@/lib/prefill";
 import type { PatientPayload, PredictionResult } from "@/lib/types";
 import { formatPercent } from "@/lib/validation";
@@ -194,20 +189,13 @@ export function SamplePatientsSection({ presets }: SamplePatientsSectionProps) {
             <label htmlFor="archetype" className="text-sm font-medium text-foreground">
               Risk archetype
             </label>
-            <Select
+            <LabeledSelect
+              id="archetype"
               value={archetype}
-              onValueChange={(v) => setArchetype(v as PatientArchetype)}
-            >
-              <SelectTrigger id="archetype">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="auto">Auto (mixed)</SelectItem>
-                <SelectItem value="low">Low risk band</SelectItem>
-                <SelectItem value="moderate">Moderate risk band</SelectItem>
-                <SelectItem value="high">High risk band</SelectItem>
-              </SelectContent>
-            </Select>
+              onValueChange={(value) => setArchetype(value as PatientArchetype)}
+              placeholder="Select risk archetype"
+              options={PATIENT_ARCHETYPE_OPTIONS}
+            />
           </div>
           <div className="flex gap-2">
             <Button type="button" variant="outline" onClick={() => regenerate()}>
