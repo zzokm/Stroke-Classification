@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { AppHeader } from "@/components/screening/app-header";
 import { ResultsPanel } from "@/components/screening/results-panel";
@@ -36,26 +36,36 @@ const STEP_TITLES: Record<WizardStepId, string> = {
   review: "Review and submit",
 };
 
+function readWizardBootstrap(): {
+  form: PatientFormData;
+  prefillNotice: string | null;
+} {
+  if (typeof window === "undefined") {
+    return { form: INITIAL_FORM, prefillNotice: null };
+  }
+
+  const prefill = consumeScreeningPrefill();
+  if (!prefill) {
+    return { form: INITIAL_FORM, prefillNotice: null };
+  }
+
+  return {
+    form: prefill.form,
+    prefillNotice: prefill.label
+      ? `Loaded sample profile: ${prefill.label}. Review the fields, then run screening.`
+      : "Loaded sample profile. Review the fields, then run screening.",
+  };
+}
+
 export function ScreeningWizard() {
+  const [wizardBootstrap] = useState(readWizardBootstrap);
   const [stepIndex, setStepIndex] = useState(0);
-  const [form, setForm] = useState<PatientFormData>(INITIAL_FORM);
+  const [form, setForm] = useState(wizardBootstrap.form);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [result, setResult] = useState<PredictionResult | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [prefillNotice, setPrefillNotice] = useState<string | null>(null);
-
-  useEffect(() => {
-    const prefill = consumeScreeningPrefill();
-    if (prefill) {
-      setForm(prefill.form);
-      setPrefillNotice(
-        prefill.label
-          ? `Loaded sample profile: ${prefill.label}. Review the fields, then run screening.`
-          : "Loaded sample profile. Review the fields, then run screening.",
-      );
-    }
-  }, []);
+  const [prefillNotice, setPrefillNotice] = useState(wizardBootstrap.prefillNotice);
 
   const currentStep = WIZARD_STEPS[stepIndex]?.id ?? "demographics";
 

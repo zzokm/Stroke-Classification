@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
 import { AppHeader } from "@/components/screening/app-header";
 import {
   CalibrationChart,

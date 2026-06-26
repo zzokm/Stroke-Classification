@@ -74,7 +74,7 @@ export function SamplePatientLoader({ onLoad }: SamplePatientLoaderProps) {
       <div className="flex min-w-0 flex-1 gap-2">
         <Select
           value={selection}
-          onValueChange={setSelection}
+          onValueChange={(value) => setSelection(value ?? "")}
           disabled={loadingPresets}
         >
           <SelectTrigger size="sm" className="min-w-0 flex-1">
