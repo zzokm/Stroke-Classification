@@ -183,7 +183,7 @@ export function ModelDetailsPage() {
                   <p>
                     <Link
                       href="/"
-                      className="text-sm font-medium text-brand underline-offset-4 hover:underline"
+                      className="text-sm font-medium text-brand-dark underline-offset-4 hover:underline"
                     >
                       Run a screening →
                     </Link>
@@ -337,7 +337,7 @@ export function ModelDetailsPage() {
                             <td className="px-3 py-2 font-medium text-foreground">
                               {row.label}
                               {row.is_best && (
-                                <span className="ml-2 text-xs font-normal text-brand">
+                                <span className="ml-2 text-xs font-normal text-brand-dark">
                                   (deployed)
                                 </span>
                               )}

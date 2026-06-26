@@ -74,8 +74,8 @@ export function AppHeader({ wide = false }: AppHeaderProps) {
                 className={cn(
                   "inline-flex min-h-9 items-center justify-center rounded-lg px-4 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/40",
                   active
-                    ? "bg-accent-light font-semibold text-brand"
-                    : "text-muted-foreground hover:bg-accent-light hover:text-brand",
+                    ? "bg-accent-light font-semibold text-brand-dark"
+                    : "text-muted-foreground hover:bg-accent-light hover:text-brand-dark",
                 )}
               >
                 {label}

@@ -48,8 +48,12 @@ export function ResultsPanel({ result }: ResultsPanelProps) {
     >
       <div className="space-y-4">
         <h2 className="text-[1.375rem] font-semibold leading-tight text-foreground">
-          Your screening result
+          Screening result
         </h2>
+        <p className="text-sm text-muted-foreground max-w-prose">
+          Summary for the patient profile entered. Share with the care team as
+          needed.
+        </p>
         <Badge
           className={cn(
             "px-3 py-1 text-sm font-semibold",

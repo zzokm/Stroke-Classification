@@ -44,6 +44,7 @@
   --color-teal: var(--teal-accent);
   --color-accent-light: var(--accent-light);
   --color-brand: var(--brand-green);
+  --color-brand-dark: var(--brand-green-dark);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -56,6 +57,7 @@
   --brand-green-hover: #009973;
   --brand-green-oklch: oklch(0.668 0.131 166);
   --brand-green-dark: oklch(0.45 0.115 166);
+  --brand-green-dark-hover: oklch(0.38 0.115 166);
   --accent-light: oklch(0.94 0.04 166);
   --background: oklch(1 0 0);
   --foreground: oklch(0.22 0.02 166);
@@ -63,7 +65,7 @@
   --card-foreground: oklch(0.22 0.02 166);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.22 0.02 166);
-  --primary: var(--brand-green);
+  --primary: var(--brand-green-dark);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.98 0.004 166);
   --secondary-foreground: oklch(0.22 0.02 166);
@@ -78,7 +80,7 @@
   --ring: var(--brand-green);
   --risk-high: oklch(0.62 0.26 25);
   --risk-medium: oklch(0.74 0.19 52);
-  --risk-low: var(--brand-green);
+  --risk-low: var(--brand-green-dark);
   --chart-1: var(--brand-green-dark);
   --chart-2: var(--brand-green);
   --chart-3: oklch(0.74 0.19 52);

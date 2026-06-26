@@ -218,9 +218,9 @@ interface ReviewStepProps {
 
 export function ReviewStep({ form, onEdit }: ReviewStepProps) {
   const rows: { label: string; value: string; step: number }[] = [
-    { label: "Gender", value: form.gender, step: 0 },
+    { label: "Gender", value: getOptionLabel(GENDER_OPTIONS, form.gender), step: 0 },
     { label: "Age", value: `${form.age} years`, step: 0 },
-    { label: "Ever married", value: form.ever_married, step: 0 },
+    { label: "Ever married", value: getOptionLabel(EVER_MARRIED_OPTIONS, form.ever_married), step: 0 },
     { label: "Work type", value: getOptionLabel(WORK_TYPE_OPTIONS, form.work_type), step: 0 },
     { label: "Residence", value: getOptionLabel(RESIDENCE_TYPE_OPTIONS, form.Residence_type), step: 0 },
     {
@@ -262,7 +262,7 @@ export function ReviewStep({ form, onEdit }: ReviewStepProps) {
             <button
               type="button"
               onClick={() => onEdit(row.step)}
-              className="shrink-0 text-sm font-medium text-brand underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring rounded-sm"
+              className="shrink-0 text-sm font-medium text-brand-dark underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring rounded-sm"
             >
               Edit
             </button>

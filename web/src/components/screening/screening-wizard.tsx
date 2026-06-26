@@ -180,9 +180,12 @@ export function ScreeningWizard() {
             </div>
           )}
           {stepIndex === 0 && (
-            <p className="text-base leading-relaxed text-muted-foreground max-w-prose">
-              {INTRO_COPY}
-            </p>
+            <>
+              <p className="text-base leading-relaxed text-muted-foreground max-w-prose">
+                {INTRO_COPY}
+              </p>
+              <SamplePatientLoader onLoad={loadSample} prominent />
+            </>
           )}
 
           <StepIndicator currentStep={currentStep} />
@@ -230,9 +233,6 @@ export function ScreeningWizard() {
       </main>
 
       <footer className="sticky bottom-0 border-t border-border bg-background/95 backdrop-blur-sm no-print">
-        <div className="mx-auto max-w-3xl border-b border-border/60 px-4 py-3 sm:px-6">
-          <SamplePatientLoader onLoad={loadSample} />
-        </div>
         <div className="mx-auto flex max-w-3xl gap-3 px-4 py-4 sm:px-6">
           <Button
             type="button"

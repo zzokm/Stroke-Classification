@@ -22,7 +22,7 @@ export function TocNav({ activeId, onJump, className }: TocNavProps) {
     <nav aria-label="Page sections" className={className}>
       <p className="mb-1 text-sm font-semibold text-foreground">On this page</p>
       {activeSection && (
-        <p className="mb-3 text-xs leading-snug text-brand" aria-live="polite">
+        <p className="mb-3 text-xs leading-snug text-brand-dark" aria-live="polite">
           {activeSection.label}
         </p>
       )}
@@ -38,7 +38,7 @@ export function TocNav({ activeId, onJump, className }: TocNavProps) {
                 className={cn(
                   "w-full rounded-md px-2.5 py-2 text-left text-sm transition-colors duration-150",
                   isActive
-                    ? "bg-accent-light font-semibold text-brand"
+                    ? "bg-accent-light font-semibold text-brand-dark"
                     : "text-muted-foreground hover:bg-accent-light/70 hover:text-foreground",
                 )}
               >
@@ -62,7 +62,7 @@ export function MobileJumpMenu({ activeId, onJump }: MobileJumpMenuProps) {
     <label className="flex flex-col gap-1.5 lg:hidden">
       <span className="text-sm font-medium text-foreground">
         On this page —{" "}
-        <span className="text-brand">
+        <span className="text-brand-dark">
           {MODEL_SECTIONS.find((s) => s.id === activeId)?.label}
         </span>
       </span>

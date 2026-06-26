@@ -6,15 +6,15 @@ export const TIER_SUMMARY: Record<
 > = {
   Low: {
     headline: "Lower estimated risk",
-    body: "Based on the information provided, your estimated stroke risk is in the lower range. Continue routine preventive care and regular check-ups with your care team.",
+    body: "Based on the information provided, the estimated stroke risk is in the lower range. Continue routine preventive care and regular check-ups with the care team.",
   },
   Medium: {
     headline: "Moderate estimated risk",
-    body: "Your estimated risk suggests enhanced monitoring may be helpful. Consider annual screening and lifestyle counseling with your healthcare provider.",
+    body: "The estimated risk suggests enhanced monitoring may be helpful. Consider annual screening and lifestyle counseling with a healthcare provider.",
   },
   High: {
     headline: "Elevated estimated risk",
-    body: "Your estimated risk is elevated. We recommend discussing these results with a clinician promptly for further assessment and preventive planning.",
+    body: "The estimated risk is elevated. Discuss these results with a clinician promptly for further assessment and preventive planning.",
   },
 };
 
