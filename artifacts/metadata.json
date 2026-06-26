@@ -1,0 +1,191 @@
+{
+  "project": "stroke_classification",
+  "target": "stroke",
+  "feature_names": [
+    "age",
+    "avg_glucose_level",
+    "bmi",
+    "cardiovascular_risk_score",
+    "hypertension",
+    "heart_disease",
+    "is_senior",
+    "gender_Female",
+    "gender_Male",
+    "ever_married_No",
+    "ever_married_Yes",
+    "work_type_Govt_job",
+    "work_type_Never_worked",
+    "work_type_Private",
+    "work_type_Self-employed",
+    "work_type_children",
+    "Residence_type_Rural",
+    "Residence_type_Urban",
+    "smoking_status_Unknown",
+    "smoking_status_formerly smoked",
+    "smoking_status_never smoked",
+    "smoking_status_smokes",
+    "glucose_category_diabetic",
+    "glucose_category_normal",
+    "glucose_category_prediabetic",
+    "bmi_category_normal",
+    "bmi_category_obese",
+    "bmi_category_overweight",
+    "bmi_category_underweight",
+    "bmi_category_nan"
+  ],
+  "raw_input_features": [
+    "gender",
+    "age",
+    "hypertension",
+    "heart_disease",
+    "ever_married",
+    "work_type",
+    "Residence_type",
+    "avg_glucose_level",
+    "bmi",
+    "smoking_status"
+  ],
+  "best_model": "random_forest",
+  "decision_threshold": 0.27999999999999986,
+  "min_recall_target": 0.68,
+  "smote_ratio": 0.35,
+  "cv_scoring": "balanced_accuracy",
+  "generalization_gaps": {
+    "train_bal_acc": {
+      "logistic_regression": 0.7884163859648468,
+      "random_forest": 0.6334157777190658,
+      "xgboost": 0.9373031833710088
+    },
+    "cv_bal_acc": {
+      "logistic_regression": 0.7813170391640829,
+      "random_forest": 0.5739466567615668,
+      "xgboost": 0.686596175542191
+    },
+    "gap": {
+      "logistic_regression": 0.0070993468007638505,
+      "random_forest": 0.05946912095749901,
+      "xgboost": 0.25070700782881783
+    }
+  },
+  "model_thresholds_validation": {
+    "logistic_regression": {
+      "threshold": 0.4649999999999998,
+      "accuracy": 0.7053789731051344,
+      "recall": 0.975,
+      "f1": 0.2445141065830721,
+      "balanced_accuracy": 0.833258354755784,
+      "combo": 0.826708435207824,
+      "precision": 0.13978494623655913
+    },
+    "random_forest": {
+      "threshold": 0.27999999999999986,
+      "accuracy": 0.8068459657701712,
+      "recall": 0.8,
+      "f1": 0.2882882882882883,
+      "balanced_accuracy": 0.803598971722365,
+      "combo": 0.8037652811735942,
+      "precision": 0.17582417582417584
+    },
+    "xgboost": {
+      "threshold": 0.2099999999999999,
+      "accuracy": 0.6797066014669927,
+      "recall": 0.975,
+      "f1": 0.22941176470588234,
+      "balanced_accuracy": 0.8197622107969151,
+      "combo": 0.812588630806846,
+      "precision": 0.13
+    },
+    "soft_voting_ensemble": {
+      "threshold": 0.3099999999999999,
+      "accuracy": 0.6833740831295844,
+      "recall": 0.975,
+      "f1": 0.2314540059347181,
+      "balanced_accuracy": 0.8216902313624679,
+      "combo": 0.8146057457212714,
+      "precision": 0.13131313131313133
+    }
+  },
+  "majority_baseline_accuracy": 0.9510763209393346,
+  "hyperparameters": {
+    "classifier__max_depth": 6,
+    "classifier__max_features": "sqrt",
+    "classifier__min_samples_leaf": 14,
+    "classifier__n_estimators": 400
+  },
+  "metrics": {
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "threshold": 0.4649999999999998,
+      "accuracy": 0.7035225048923679,
+      "precision": 0.12238805970149254,
+      "recall": 0.82,
+      "balanced_accuracy": 0.7587654320987653,
+      "f1": 0.21298701298701297,
+      "roc_auc": 0.83059670781893,
+      "pr_auc": 0.21692578396011117,
+      "brier_score": 0.16923157291003313
+    },
+    "random_forest": {
+      "model": "random_forest",
+      "threshold": 0.27999999999999986,
+      "accuracy": 0.8003913894324853,
+      "precision": 0.16228070175438597,
+      "recall": 0.74,
+      "balanced_accuracy": 0.7717489711934156,
+      "f1": 0.26618705035971224,
+      "roc_auc": 0.8288683127572016,
+      "pr_auc": 0.20594834981859014,
+      "brier_score": 0.06233825838694699
+    },
+    "xgboost": {
+      "model": "xgboost",
+      "threshold": 0.2099999999999999,
+      "accuracy": 0.6565557729941291,
+      "precision": 0.10704960835509138,
+      "recall": 0.82,
+      "balanced_accuracy": 0.7340740740740741,
+      "f1": 0.18937644341801385,
+      "roc_auc": 0.8303703703703704,
+      "pr_auc": 0.2104294200996181,
+      "brier_score": 0.09902982894563232
+    },
+    "soft_voting_ensemble": {
+      "model": "soft_voting_ensemble",
+      "threshold": 0.3099999999999999,
+      "accuracy": 0.6771037181996086,
+      "precision": 0.11538461538461539,
+      "recall": 0.84,
+      "balanced_accuracy": 0.7543621399176954,
+      "f1": 0.2028985507246377,
+      "roc_auc": 0.8336625514403292,
+      "pr_auc": 0.21957095128094622,
+      "brier_score": 0.10321498581446546
+    }
+  },
+  "best_model_metrics": {
+    "accuracy": 0.8003913894324853,
+    "balanced_accuracy": 0.7717489711934156,
+    "pr_auc": 0.20594834981859014,
+    "f1": 0.26618705035971224,
+    "recall": 0.74,
+    "brier_score": 0.06233825838694699,
+    "roc_auc": 0.8288683127572016,
+    "precision": 0.16228070175438597
+  },
+  "risk_thresholds": {
+    "decision_threshold": 0.27999999999999986,
+    "high_risk_min_probability": 0.27999999999999986,
+    "medium_risk_min_probability": 0.15,
+    "low_risk_max_probability": 0.15
+  },
+  "resampling_method": "SMOTE (ratio=0.35) for RF only; class weights for LR/XGB",
+  "imputation_method": "KNNImputer",
+  "class_distribution": {
+    "train_stroke": 199,
+    "train_total": 4087,
+    "test_stroke": 50,
+    "test_total": 1022
+  },
+  "random_state": 42,
+  "created_at": "2026-06-25T23:01:09.338311+00:00"
+}

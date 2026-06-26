@@ -1,0 +1,25 @@
+{
+  "name": "stroke-classification",
+  "private": true,
+  "description": "Stroke risk screening — Next.js frontend + FastAPI inference API",
+  "scripts": {
+    "install:web": "npm install --prefix web",
+    "install:api": "pip install -r api/requirements.txt",
+    "install:all": "npm run install:web && npm run install:api",
+    "dev:api": "cd api && ..\\.venv\\Scripts\\python.exe -m uvicorn main:app --host 127.0.0.1 --port 8003 --reload",
+    "dev:web": "npm run dev --prefix web",
+    "dev": "concurrently -n api,web -c green,cyan \"npm run dev:api\" \"npm run dev:web\"",
+    "build:web": "npm run build --prefix web",
+    "build": "npm run build:web",
+    "start:api": "cd api && ..\\.venv\\Scripts\\python.exe -m uvicorn main:app --host 0.0.0.0 --port 8003",
+    "start:web": "npm run start --prefix web",
+    "start": "concurrently -n api,web -c green,cyan \"npm run start:api\" \"npm run start:web\"",
+    "lint:web": "npm run lint --prefix web",
+    "typecheck:web": "npm run typecheck --prefix web",
+    "check:web": "npm run check --prefix web",
+    "health:api": ".venv\\Scripts\\python.exe scripts/health_check.py"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

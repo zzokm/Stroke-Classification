@@ -1,0 +1,66 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+web/node_modules/
+web/.next/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+api/.env
+web/.env.local
+!.env.example
+!**/.env.example
+!**/.env.production.example
+
+# OS & editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+.cursor/
+.impeccable/
+
+# Local data & reference (not needed for deployment)
+Dataset/
+Refrence Code/
+visuals/
+uploads/
+agent-transcripts/
+
+# Training notebook (not required at runtime)
+stroke_classification.ipynb
+
+# Docker local overrides
+docker-compose.override.yml
+
+# Logs
+*.log
+
+# Artifacts: keep deployed model + metadata; ignore other generated outputs
+artifacts/*
+!artifacts/models/
+!artifacts/models/**
+!artifacts/metadata.json
+!artifacts/model_report.json

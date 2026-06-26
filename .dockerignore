@@ -1,0 +1,42 @@
+# Python
+.venv
+__pycache__
+*.py[cod]
+*.egg-info
+.pytest_cache
+.mypy_cache
+
+# Node
+node_modules
+web/node_modules
+web/.next
+.next
+npm-debug.log*
+
+# Git / IDE
+.git
+.gitignore
+.cursor
+.vscode
+.impeccable
+
+# Secrets
+.env
+.env.*
+!.env.example
+api/.env
+web/.env*.local
+
+# Local-only project files
+Dataset
+Refrence Code
+visuals
+stroke_classification.ipynb
+uploads
+agent-transcripts
+
+# Docs not needed in image
+DESIGN.md
+PRODUCT.md
+*.md
+!web/README.md
