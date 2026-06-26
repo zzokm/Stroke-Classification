@@ -49,9 +49,6 @@ visuals/
 uploads/
 agent-transcripts/
 
-# Training notebook (not required at runtime)
-stroke_classification.ipynb
-
 # Docker local overrides
 docker-compose.override.yml
 
